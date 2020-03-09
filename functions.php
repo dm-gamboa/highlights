@@ -84,53 +84,24 @@ endif;
 add_action( 'after_setup_theme', 'highlights_setup' );
 
 /**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
+ * Register custom post types
  */
-function highlights_content_width() {
-	// This variable is intended to be overruled from themes.
-	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'highlights_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'highlights_content_width', 0 );
+require get_template_directory() . '/inc/template-custom-post-types.php';
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ * Register custom post types
  */
-function highlights_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'highlights' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'highlights' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'highlights_widgets_init' );
+require get_template_directory() . '/inc/template-taxonomies.php';
 
 /**
- * Enqueue scripts and styles.
+ * Register custom widgets.
  */
-function highlights_scripts() {
-	wp_enqueue_style( 'highlights-style', get_stylesheet_uri() );
+require get_template_directory() . '/inc/template-widgets.php';
 
-	wp_enqueue_script( 'highlights-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'highlights-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'highlights_scripts' );
+/**
+ * Functions which enhance the theme by hooking into WordPress.
+ */
+require get_template_directory() . '/inc/template-enqueues.php';
 
 /**
  * Implement the Custom Header feature.
