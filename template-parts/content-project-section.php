@@ -33,14 +33,13 @@ $class = "$for $type $title";
         <div class="code-snippets">
             <?php foreach( $section[ 'code' ] as $code ): ?>
                 <?php if( $code[ 'language' ] && $code[ 'snippet' ] ): ?>
-                <div class="code-snippet">
-                    <span class="language"><?php echo $code[ 'language' ]; ?></span>
-                    <?php do_shortcode( '[code lang="js"]' . $code[ 'snippet' ] . '[/code]' ); ?>
-                </div><!--.code-snippet-->
+                    <div class="code-snippet">
+                        <button class="button code-toggle">View Code Snippet</button>
+                        <span class="language"><?php echo $code[ 'language' ]; ?></span>
+                        <pre><?php echo $code[ 'snippet' ]; ?></pre>
+                    </div><!--.code-snippet-->
+                <?php endif; ?>
             <?php endforeach; ?>
         </div><!--.code-snippets-->
     <?php endif;?>
-
-
-
 </div><!--.featured-project-->

@@ -47,13 +47,16 @@ if( function_exists( 'get_field' ) ){
                     if( have_rows( 'code' ) ){
                         while( have_rows( 'code' ) ){
                             the_row();
-                            $section[ 'code' ] = array (
+                            
+                            $codeSnippet = array (
                                 'language'  => get_sub_field( 'language' ),
                                 'snippet'   => get_sub_field( 'snippet' )
                             );
+
+                            $section[ 'code' ][] = $codeSnippet;
                         }
                     }
-        
+
                     $highlights[] = $section;
                 }
             }
