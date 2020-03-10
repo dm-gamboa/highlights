@@ -4,39 +4,39 @@ if ( ! function_exists('highlights_custom_post_types') ) {
     // # Custom Post Types
     function highlights_custom_post_types() {
         
-        // ## Web Projects
+        // ## Projects
         $labels = array(
-            'name'                  => 'Web Projects',
-            'singular_name'         => 'Web Project',
-            'menu_name'             => 'Web Projects',
-            'name_admin_bar'        => 'Web Project',
-            'archives'              => 'Web Project Archives',
-            'attributes'            => 'Web Project Attributes',
-            'parent_item_colon'     => 'Web Project',
-            'all_items'             => 'All Web Projects',
-            'add_new_item'          => 'Add New Web Project',
+            'name'                  => 'Projects',
+            'singular_name'         => 'Project',
+            'menu_name'             => 'Projects',
+            'name_admin_bar'        => 'Project',
+            'archives'              => 'Project Archives',
+            'attributes'            => 'Project Attributes',
+            'parent_item_colon'     => 'Project',
+            'all_items'             => 'All Projects',
+            'add_new_item'          => 'Add New Project',
             'add_new'               => 'Add New',
-            'new_item'              => 'New Web Project',
-            'edit_item'             => 'Edit Web Project',
-            'update_item'           => 'Update Web Project',
-            'view_item'             => 'View Web Project',
-            'view_items'            => 'View Web Projects',
-            'search_items'          => 'Search Web Project',
+            'new_item'              => 'New Project',
+            'edit_item'             => 'Edit Project',
+            'update_item'           => 'Update Project',
+            'view_item'             => 'View Project',
+            'view_items'            => 'View Projects',
+            'search_items'          => 'Search Project',
             'not_found'             => 'Not found',
             'not_found_in_trash'    => 'Not found in Trash',
             'featured_image'        => 'Featured Image',
             'set_featured_image'    => 'Set featured image',
             'remove_featured_image' => 'Remove featured image',
             'use_featured_image'    => 'Use as featured image',
-            'insert_into_item'      => 'Insert into Web Project',
-            'uploaded_to_this_item' => 'Uploaded to this Web Project',
-            'items_list'            => 'Web Projects list',
-            'items_list_navigation' => 'Web Projects list navigation',
-            'filter_items_list'     => 'Filter Web Projects list',
+            'insert_into_item'      => 'Insert into Project',
+            'uploaded_to_this_item' => 'Uploaded to this Project',
+            'items_list'            => 'Projects list',
+            'items_list_navigation' => 'Projects list navigation',
+            'filter_items_list'     => 'Filter Projects list',
         );
         $args = array(
-            'label'                 => 'Web Project',
-            'description'           => 'CPT for Web Projects.',
+            'label'                 => 'Project',
+            'description'           => 'CPT for Projects.',
             'labels'                => $labels,
             'supports'              => array( 'title', 'thumbnail' ),
             'hierarchical'          => false,
@@ -53,7 +53,7 @@ if ( ! function_exists('highlights_custom_post_types') ) {
             'publicly_queryable'    => true,
             'capability_type'       => 'page',
         );
-        register_post_type( 'projects-web', $args );
+        register_post_type( 'projects', $args );
     
     }
 
