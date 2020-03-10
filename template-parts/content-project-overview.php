@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying featured projects
+ * Template part for displaying the overview section in single project pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,25 +10,6 @@
 ?>
 
 <?php
-// ----------------------------------------
-//  # ACF FIELDS
-// ----------------------------------------
-if( function_exists( 'get_field' ) ){
-    // ----------------------------------------
-    //  # OVERVIEW
-    // ----------------------------------------
-    $overviewACF = get_field( 'overview' );
-
-    if( $overviewACF ){
-        $overview = array (
-            'description'       => $overviewACF[ 'description' ],
-            'link_github'       => $overviewACF[ 'link' ][ 'github' ],
-            'link_live_site'    => $overviewACF[ 'link' ][ 'live_site' ]
-        );
-    }
-}
-// ----------------------------------------
-
 // ----------------------------------------
 //  # TAXONOMIES
 // ----------------------------------------
@@ -61,7 +42,7 @@ $projTools      = highlights_get_terms_in_subcategory( 'type', 'project-manageme
     </aside><!--.aside-->
     
     <div class="content-main">
-        <h2 class="title"><?php the_title(); ?></h2>
+        <h1 class="title"><?php the_title(); ?></h1>
         <h3 class="type"><?php echo $projectType; ?></h3>
 
         <div class="tools">
@@ -97,6 +78,4 @@ $projTools      = highlights_get_terms_in_subcategory( 'type', 'project-manageme
     <div class="content-main-hover">
         <p class="description"><?php echo $overview[ 'description' ]; ?></p>
     </div><!--.content-hover-->
-
-    <a class="button button-link" href="<?php the_permalink(); ?>">Read More</a>
 </div><!--.featured-project-->

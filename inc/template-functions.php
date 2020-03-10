@@ -35,3 +35,57 @@ function highlights_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'highlights_pingback_header' );
+
+// ----------------------------------------
+//  # UTILITIES
+// ----------------------------------------
+if( !function_exists( 'highlights_htmlify' ) ){
+	function highlights_htmlify( $string ){
+		// Format string so that it ...
+		// ... is in all lowercase
+		$string = strtolower( $string );
+		// ... has no trailing white space
+		$string = trim( $string );
+		// ... does not contain multiple spaces
+		$string = preg_replace( '/\s+/', ' ', $string );
+		// ... all the spaces are turned into dashes
+		$string = str_replace( ' ', '-', $string );
+		// ... it contains no special characters (except for dashes)
+		$string = preg_replace( '/[^a-z0-9-]/i', '', $string);
+
+		return $string;
+	}
+}
+
+if( !function_exists( 'get_terms_in_subcategory' ) ){
+    function highlights_get_terms_in_subcategory( $taxonomy, $subcategory, $subcategoryField = 'slug' ){
+        // Get all the terms attached to the post
+        $postTerms = get_the_terms( $post->ID, $taxonomy );
+        foreach( $postTerms as $term ){
+            // Get an array of all the post term names
+            $postTermNames[] = $term->name;
+        }
+
+        // Get the subcategory as a WP term object
+        // So we can grab the ID and pass it as an arg later
+        $subcategory = get_term_by( $subcategoryField, $subcategory, $taxonomy );
+
+        // Get all the terms under the subcategory
+        $subcategoryChildren = get_terms( array( 
+            'taxonomy' => $taxonomy,
+            'parent' => $subcategory->term_id ) );
+        
+        // If the subcategory has child terms
+        if( $subcategoryChildren ){
+            // Loop through all the terms under subcategory
+            foreach( $subcategoryChildren as $child ){
+                // Get the subcategory terms that are also attached to the post
+                if( in_array( $child->name, $postTermNames ) ){
+                    $termsInSubcategory[] = $child->name;
+                }
+            }
+            return $termsInSubcategory;
+        }
+        return;
+    }
+}
