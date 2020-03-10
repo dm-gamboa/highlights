@@ -22,8 +22,8 @@ if( function_exists( 'get_field' ) ){
     if( $splashPageACF ){
         $splashPage = array (
             'heading'   => $splashPageACF[ 'text' ][ 'heading' ],
-            'subeading' => $splashPageACF[ 'text' ][ 'subheading' ],
-            'image'     => $splashPageACF[ 'image']
+            'subheading' => $splashPageACF[ 'text' ][ 'subheading' ],
+            'image'     => $splashPageACF[ 'image' ]
         );
     }
 
@@ -34,10 +34,10 @@ if( function_exists( 'get_field' ) ){
 
     if( $featuredProjectsACF ){
         $featuredProjects = array (
-            'title'             => $featuredProjectsACF[ 'text' ][ 'title' ],
-            'description'       => $featuredProjectsACF[ 'text' ][ 'description' ],
+            'title'             => $featuredProjectsACF[ 'title' ],
+            'description'       => $featuredProjectsACF[ 'description' ],
             // featured_project subfields in #featured-projects
-            'featured_project'  => $featuredProjectsACF[ 'featured_project' ]
+            'the_projects'  => $featuredProjectsACF[ 'featured_projects' ]
         );
     }
 
@@ -65,11 +65,11 @@ if( function_exists( 'get_field' ) ){
         <h2 class="section-title screen-reader-text">Splash Page</h2>
         <div class="content">
             <?php if( $splashPage[ 'heading' ] ): ?>
-                <h2 class="section-heading"><?php echo $splashPage[ 'heading' ];?></h2>
+                <h2 class="section-heading"><?php echo $splashPage[ 'heading' ]; ?></h2>
             <?php endif; ?>
-
+        
             <?php if( $splashPage[ 'subheading' ] ): ?>
-                <h3 class="section-subheading"><?php echo $splashPage[ 'subheading' ];?></h3>
+                <h3 class="section-subheading"><?php echo $splashPage[ 'subheading' ]; ?></h3>
             <?php endif; ?>
 
             <?php if( $splashPage[ 'image' ] ) {
@@ -87,12 +87,12 @@ if( function_exists( 'get_field' ) ){
             <p class="section-description"><?php echo $featuredProjects[ 'description' ];?></p>
         <?php endif; ?>
 
-        <?php if( $featuredProjects[ 'featured_project' ] ) : ?>
+        <?php if( $featuredProjects[ 'the_projects' ] ) : ?>
             <ul>
                 <?php
-                foreach ( $featuredProjects[ 'featured_project' ] as $post ) {
+                foreach ( $featuredProjects[ 'the_projects' ] as $post ) {
                     setup_postdata( $post );
-                    get_template_part( 'content', 'featured-project' );
+                    get_template_part( 'template-parts/content', 'featured-project' );
                 }
                 wp_reset_postdata();
                 ?>
@@ -101,7 +101,7 @@ if( function_exists( 'get_field' ) ){
     </section><!--#featured-projects.main-section-->
 
     <section id="about" class="about main-section">
-        <h2 class="section-title"><?php  $about[ 'title' ]?></h2>
+        <h2 class="section-title"><?php echo $about[ 'title' ]; ?></h2>
         <figure class="headshot">
             <?php 
             if( $about[ 'image' ] ) {

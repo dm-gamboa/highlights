@@ -28,11 +28,26 @@ if( function_exists( 'get_field' ) ){
     }
 }
 // ----------------------------------------
+
+// ----------------------------------------
+//  # TAXONOMIES
+// ----------------------------------------
+echo "TEST: ";
+$terms = get_the_terms( $post->ID, 'type' );
+foreach( $terms as $term ){
+    $type .= $term->name . ' ';
+    echo $type . "<br />";
+}
+
+$devTools   = get_the_terms( $post->ID, 'development' );
+$desTools   = get_the_terms( $post->ID, 'design' );
+$projTools  = get_the_terms( $post->ID, 'project-management' );
+// ----------------------------------------
 ?>
 
 <div class="featured-project">
     <aside class="content-aside">
-        <figure class="preview"><?php the_thumbnail(); ?></figure>
+        <figure class="preview"><?php the_post_thumbnail(); ?></figure>
         <span class="links">
             <?php if( $overview[ 'link_github' ] ): ?>
                 <a class="github" href="<?php echo esc_url( $overview[ 'link_github' ] ); ?>">GitHub</a>
@@ -46,34 +61,28 @@ if( function_exists( 'get_field' ) ){
     
     <div class="content-main">
         <h2 class="title"><?php the_title(); ?></h3>
-        <h3 class="type"><?php echo get_the_terms( the_ID(), 'type' ); ?></h3>
+        <h3 class="type"><?php echo $type; ?></h3>
 
         <div class="tools">
-            <?php
-            $devTools   = get_the_terms( the_ID(), 'development' );
-            $desTools   = get_the_terms( the_ID(), 'design' );
-            $projTools  = get_the_terms( the_ID(), 'project-management' );
-            ?>
-
             <ul class="development tools-list">
-                <?php if( $devTools ) { ?>
-                    <?php foreach( $devTools as $devTool ){ ?>
-                        <li class="tool"><?php echo $devTool->name ?></li>
+                <?php if( $devTools ): ?>
+                    <?php foreach( $devTools as $devTool ): ?>
+                        <li class="tool"><?php echo $type; ?></li>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </ul><!--.development.tools-list-->
 
             <ul class="design tools-list">
-                <?php if( $desTools ) { ?>
-                    <?php foreach( $desTools as $desTool ){ ?>
+                <?php if( $desTools ): ?>
+                    <?php foreach( $desTools as $desTool ): ?>
                         <li class="tool"><?php echo $desTool->name ?></li>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </ul><!--.design.tools-list-->
 
             <ul class="project tools-list">
-                <?php if( $projTools ) { ?>
-                    <?php foreach( $projTools as $projTool ){ ?>
+                <?php if( $projTools ): ?>
+                    <?php foreach( $projTools as $projTool ): ?>
                         <li class="tool"><?php echo $projTool->name ?></li>
                     <?php endforeach; ?>
                 <?php endif; ?>
