@@ -64,11 +64,11 @@ if( function_exists( 'get_field' ) ){
         <h2 class="section-title screen-reader-text">Splash Page</h2>
         <div class="content">
             <?php if( $splashPage[ 'heading' ] ): ?>
-                <h2 class="section-heading"> <?php echo $splashPage[ 'heading' ];?> </h2>
+                <h2 class="section-heading"><?php echo $splashPage[ 'heading' ];?></h2>
             <?php endif; ?>
 
             <?php if( $splashPage[ 'subheading' ] ): ?>
-                <h3 class="section-subheading"> <?php echo $splashPage[ 'subheading' ];?> </h3>
+                <h3 class="section-subheading"><?php echo $splashPage[ 'subheading' ];?></h3>
             <?php endif; ?>
 
             <?php if( $splashPage[ 'image' ] ) {
@@ -79,11 +79,11 @@ if( function_exists( 'get_field' ) ){
 
     <section id="featured-projects" class="featured-projects main-section">
         <?php if( $featuredProjects[ 'title' ] ): ?>
-            <h2 class="section-title"> <?php echo $featuredProjects[ 'title' ];?> </h2>
+            <h2 class="section-title"><?php echo $featuredProjects[ 'title' ];?></h2>
         <?php endif; ?>
 
         <?php if( $featuredProjects[ 'description' ] ): ?>
-            <p class="section-description"> <?php echo $featuredProjects[ 'description' ];?> </p>
+            <p class="section-description"><?php echo $featuredProjects[ 'description' ];?></p>
         <?php endif; ?>
 
         <?php if( $featuredProjects[ 'featured_project' ] ) : ?>
@@ -110,7 +110,7 @@ if( function_exists( 'get_field' ) ){
         </figure>
         
         <?php if( $about[ 'text' ] ): ?>
-            <article> <?php echo $about[ 'text' ]; ?> </article>
+            <article><?php echo $about[ 'text' ]; ?></article>
         <?php endif;?>
     </section><!--#about.main-section-->
 
