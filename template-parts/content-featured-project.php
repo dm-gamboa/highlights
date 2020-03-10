@@ -32,16 +32,50 @@ if( function_exists( 'get_field' ) ){
 // ----------------------------------------
 //  # TAXONOMIES
 // ----------------------------------------
-echo "TEST: ";
-$terms = get_the_terms( $post->ID, 'type' );
-foreach( $terms as $term ){
-    $type .= $term->name . ' ';
-    echo $type . "<br />";
+
+if( !function_exists( 'get_terms_in_subcategory' ) ){
+    function get_terms_in_subcategory( $taxonomy, $subcategory, $subcategoryField = 'slug' ){
+        // Get all the terms attached to the post
+        $postTerms = get_the_terms( $post->ID, $taxonomy );
+        foreach( $postTerms as $term ){
+            // Get an array of all the post term names
+            $postTermNames[] = $term->name;
+        }
+
+        // Get the subcategory as a WP term object
+        // So we can grab the ID and pass it as an arg later
+        $subcategory = get_term_by( $subcategoryField, $subcategory, $taxonomy );
+
+        // Get all the terms under the subcategory
+        $subcategoryChildren = get_terms( array( 
+            'taxonomy' => $taxonomy,
+            'parent' => $subcategory->term_id ) );
+        
+        // If the subcategory has child terms
+        if( $subcategoryChildren ){
+            // Loop through all the terms under subcategory
+            foreach( $subcategoryChildren as $child ){
+                // Get the subcategory terms that are also attached to the post
+                if( in_array( $child->name, $postTermNames ) ){
+                    $termsInSubcategory[] = $child->name;
+                }
+            }
+            return $termsInSubcategory;
+        }
+        return;
+    }
 }
 
-$devTools   = get_the_terms( $post->ID, 'development' );
-$desTools   = get_the_terms( $post->ID, 'design' );
-$projTools  = get_the_terms( $post->ID, 'project-management' );
+$projectType    = get_terms_in_subcategory( 'type', 'project' );
+// Get the most specific project type
+while( get_terms_in_subcategory( 'type', $projectType[0], 'name' ) ){
+    $projectType = get_terms_in_subcategory( 'type', $projectType[0], 'name' );
+}
+$projectType    = $projectType[0];
+
+$devTools       = get_terms_in_subcategory( 'type', 'development' );
+$desTools       = get_terms_in_subcategory( 'type', 'design' );
+$projTools      = get_terms_in_subcategory( 'type', 'project-management' );
 // ----------------------------------------
 ?>
 
@@ -61,33 +95,38 @@ $projTools  = get_the_terms( $post->ID, 'project-management' );
     
     <div class="content-main">
         <h2 class="title"><?php the_title(); ?></h3>
-        <h3 class="type"><?php echo $type; ?></h3>
+        <h3 class="type"><?php echo $projectType; ?></h3>
 
         <div class="tools">
             <ul class="development tools-list">
+                <h3>Development Tools</h3>
                 <?php if( $devTools ): ?>
                     <?php foreach( $devTools as $devTool ): ?>
-                        <li class="tool"><?php echo $type; ?></li>
+                        <li class="tool"><?php echo $devTool; ?></li>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </ul><!--.development.tools-list-->
 
             <ul class="design tools-list">
+                <h3>Design Tools</h3>
                 <?php if( $desTools ): ?>
                     <?php foreach( $desTools as $desTool ): ?>
-                        <li class="tool"><?php echo $desTool->name ?></li>
+                        <li class="tool"><?php echo $desTool ?></li>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </ul><!--.design.tools-list-->
 
             <ul class="project tools-list">
+                <h3>Project Management Tools</h3>
                 <?php if( $projTools ): ?>
                     <?php foreach( $projTools as $projTool ): ?>
-                        <li class="tool"><?php echo $projTool->name ?></li>
+                        <li class="tool"><?php echo $projTool ?></li>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </ul><!--.project.tools-list-->
-        </div><!--.tools-->    
+        </div><!--.tools-->
+
+        <a class="button button-link" href="<?php the_permalink(); ?>">Read More</a>
     </div><!--.content-main-->
 
     <div class="content-hover">
