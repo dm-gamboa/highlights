@@ -48,8 +48,9 @@ if( function_exists( 'get_field' ) ){
 
     if( $aboutACF ){
         $about = array (
-            'title'             => $aboutACF[ 'text' ][ 'title' ],
-            'description'       => $aboutACF[ 'text' ][ 'description' ]
+            'title'             => $aboutACF[ 'title' ],
+            'description'       => $aboutACF[ 'text' ],
+            'image'             => $aboutACF[ 'image' ]
         );
     }
 }
@@ -100,7 +101,7 @@ if( function_exists( 'get_field' ) ){
     </section><!--#featured-projects.main-section-->
 
     <section id="about" class="about main-section">
-        <h2 class="section-title screen-reader-text">About</h2>
+        <h2 class="section-title"><?php  $about[ 'title' ]?></h2>
         <figure class="headshot">
             <?php 
             if( $about[ 'image' ] ) {
