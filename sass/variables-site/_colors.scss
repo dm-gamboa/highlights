@@ -1,4 +1,22 @@
-$color__background-body: #fff;
+$color__brand-01: #F4B743;
+$color__brand-02: #242021;
+$color__brand-03: #E6E6E6;
+
+$color__brand-01-variant-dark: #C29034;
+$color__brand-01-variant-darker: darken(#C29034 , 0.5);
+$color__brand-02-variant-dark: #0F0E0E;
+$color__brand-02-variant-darker: darken(#0F0E0E , 0.5);
+$color__brand-03-variant-dark: #CCCCCC;
+$color__brand-03-variant-darker: darken(#CCCCCC , 0.5);
+
+$color__brand-01-variant-light: #F7D18D;
+$color__brand-01-variant-lighter: lighten(#F7D18D , 0.5);
+$color__brand-02-variant-light: #332D2F;
+$color__brand-02-variant-lighter: lighten(#332D2F , 0.5);
+$color__brand-03-variant-light: #F2F2F2;
+$color__brand-03-variant-lighter: lighten(#F2F2F2 , 0.5);
+
+$color__background-body: #{$color__brand-03-variant-lighter};
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
 $color__background-button: #e6e6e6;
