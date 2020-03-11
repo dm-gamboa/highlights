@@ -9,7 +9,29 @@ html {
 }
 
 body {
+	padding: modular_scale(1) modular_scale(1);
 	background: $color__background-body;
+
+	@include mq($tablet) {
+		padding: modular_scale(1) modular_scale(2);
+	}
+
+	@include mq($desktop) {
+		padding: modular_scale(1) modular_scale(3);
+	}
+}
+
+header {
+	position: sticky;
+	top: 0;
+}
+
+.main-section {
+	min-height: 100vh;
+	
+	h2.section-title {
+		font-size: modular_scale(3);
+	}
 }
 
 hr {

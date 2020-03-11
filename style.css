@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
 Theme Name: Highlights
 Theme URI: http://underscores.me/
@@ -40,7 +41,26 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Media
 	## Captions
 	## Galleries
+# Pages
 --------------------------------------------------------------*/
+@font-face { font-family: 'icons'; src: url("./fonts/icons.woff2") format("woff2"), url("./fonts/icons.woff") format("woff"); font-weight: normal; font-style: normal; }
+
+.icon-link { text-decoration: none; }
+
+.icon-link .icon { font-family: 'icons'; /* '' */ /* '' */ /* '' */ /* '' */ /* '' */ /* '' */ }
+
+.icon-link .icon.icon-design:before { content: '\e804'; }
+
+.icon-link .icon.icon-project-management:before { content: '\e806'; }
+
+.icon-link .icon.icon-github:before { content: '\f09b'; }
+
+.icon-link .icon.icon-development:before { content: '\f121'; }
+
+.icon-link .icon.icon-arrow:before { content: '\f13a'; }
+
+.icon-link .icon.icon-linkedin:before { content: '\f319'; }
+
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -153,9 +173,9 @@ template { display: none; }
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
-body, button, input, select, optgroup, textarea { color: #404040; font-family: sans-serif; font-size: 16px; font-size: 1rem; line-height: 1.5; }
+body, button, input, select, optgroup, textarea { color: #0e0d0d; font-family: sans-serif; font-size: 16px; font-size: 1rem; line-height: 1.5; }
 
-h1, h2, h3, h4, h5, h6 { clear: both; }
+h1, h2, h3, h4, h5, h6 { clear: both; color: #c08f33; }
 
 p { margin-bottom: 1.5em; }
 
@@ -165,7 +185,7 @@ blockquote { margin: 0 1.5em; }
 
 address { margin: 0 0 1.5em; }
 
-pre { background: #eee; font-family: "Courier 10 Pitch", Courier, monospace; font-size: 15px; font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1.6em; max-width: 100%; overflow: auto; padding: 1.6em; }
+pre { background: #cbcbcb; font-family: "Courier 10 Pitch", Courier, monospace; font-size: 15px; font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1.6em; max-width: 100%; overflow: auto; padding: 1.6em; }
 
 code, kbd, tt, var { font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace; font-size: 15px; font-size: 0.9375rem; }
 
@@ -182,9 +202,19 @@ html { box-sizing: border-box; }
 
 *, *:before, *:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */ box-sizing: inherit; }
 
-body { background: #f3f3f3; }
+body { padding: 1.618em 1.618em; background: #F4B743; }
 
-hr { background-color: #ccc; border: 0; height: 1px; margin-bottom: 1.5em; }
+@media (min-width: 47.5em) { body { padding: 1.618em 2.617924em; } }
+
+@media (min-width: 78.125em) { body { padding: 1.618em 4.235801032em; } }
+
+header { position: -webkit-sticky; position: sticky; top: 0; }
+
+.main-section { min-height: 100vh; }
+
+.main-section h2.section-title { font-size: 4.235801032em; }
+
+hr { background-color: #cbcbcb; border: 0; height: 1px; margin-bottom: 1.5em; }
 
 ul, ol { margin: 0 0 1.5em 3em; }
 
@@ -207,15 +237,13 @@ table { margin: 0 0 1.5em; width: 100%; }
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-button, input[type="button"], input[type="reset"], input[type="submit"] { border: 1px solid; border-color: #ccc #ccc #bbb; border-radius: 3px; background: #e6e6e6; color: rgba(0, 0, 0, 0.8); font-size: 12px; font-size: 0.75rem; line-height: 1; padding: .6em 1em .4em; }
+button, input[type="button"], input[type="reset"], input[type="submit"], .button { padding: 1em; background: #242021; color: #F4B743; text-transform: uppercase; text-decoration: none; }
 
-button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover { border-color: #ccc #bbb #aaa; }
+button:hover, button:focus, button:active, input[type="button"]:hover, input[type="button"]:focus, input[type="button"]:active, input[type="reset"]:hover, input[type="reset"]:focus, input[type="reset"]:active, input[type="submit"]:hover, input[type="submit"]:focus, input[type="submit"]:active, .button:hover, .button:focus, .button:active { background: #C29034; color: #242021; font-weight: bold; }
 
-button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus { border-color: #aaa #bbb #bbb; }
+input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="number"], input[type="tel"], input[type="range"], input[type="date"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="color"], textarea { color: #242021; border: 1px solid #ccc; border-radius: 3px; padding: 3px; }
 
-input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="number"], input[type="tel"], input[type="range"], input[type="date"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="color"], textarea { color: #666; border: 1px solid #ccc; border-radius: 3px; padding: 3px; }
-
-input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="range"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="time"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="color"]:focus, textarea:focus { color: #111; }
+input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="range"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="time"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="color"]:focus, textarea:focus { color: #c08f33; }
 
 select { border: 1px solid #ccc; }
 
@@ -227,11 +255,11 @@ textarea { width: 100%; }
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
-a { color: royalblue; }
+a { color: #c08f33; }
 
-a:visited { color: purple; }
+a:visited { color: #c08f33; }
 
-a:hover, a:focus, a:active { color: midnightblue; }
+a:hover, a:focus, a:active { color: #242021; }
 
 a:focus { outline: thin dotted; }
 
@@ -240,29 +268,25 @@ a:hover, a:active { outline: 0; }
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.main-navigation { clear: both; display: block; float: left; width: 100%; }
+.main-navigation { display: block; width: 100%; }
 
-.main-navigation ul { display: none; list-style: none; margin: 0; padding-left: 0; }
+.main-navigation ul { display: none; margin: 0; padding: 0; list-style: none; }
 
-.main-navigation ul ul { box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2); float: left; position: absolute; top: 100%; left: -999em; z-index: 99999; }
+@media (min-width: 47.5em) { .main-navigation ul.nav-menu { display: flex; }
+	.main-navigation ul.nav-menu li { flex: 1; }
+	.main-navigation ul.sub-menu { display: block; }
+	.main-navigation ul.sub-menu li { float: right; padding-left: 1.618em; } }
 
-.main-navigation ul ul ul { left: -999em; top: 0; }
+.main-navigation a { display: block; font-size: 1.618em; text-decoration: none; }
 
-.main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul { left: 100%; }
-
-.main-navigation ul ul a { width: 200px; }
-
-.main-navigation ul li:hover > ul, .main-navigation ul li.focus > ul { left: auto; }
-
-.main-navigation li { float: left; position: relative; }
-
-.main-navigation a { display: block; text-decoration: none; }
+.main-navigation .icon-link .icon { font-size: 1.618em; }
 
 /* Small menu. */
 .menu-toggle, .main-navigation.toggled ul { display: block; }
 
-@media screen and (min-width: 37.5em) { .menu-toggle { display: none; }
-	.main-navigation ul { display: block; } }
+@media (min-width: 47.5em) { .menu-toggle, .main-navigation.toggled ul { display: none; } }
+
+@media (min-width: 47.5em) { .menu-toggle { display: none; } }
 
 .site-main .comment-navigation, .site-main .posts-navigation, .site-main .post-navigation { margin: 0 0 1.5em; overflow: hidden; }
 
@@ -312,13 +336,7 @@ a:hover, a:active { outline: 0; }
 --------------------------------------------------------------*/
 .sticky { display: block; }
 
-.post, .page { margin: 0 0 1.5em; }
-
 .updated:not(.published) { display: none; }
-
-.page-content, .entry-content, .entry-summary { margin: 1.5em 0 0; }
-
-.page-links { clear: both; margin: 0 0 1.5em; }
 
 /*--------------------------------------------------------------
 ## Comments
@@ -382,5 +400,62 @@ embed, iframe, object { max-width: 100%; }
 .gallery-columns-9 .gallery-item { max-width: 11.11%; }
 
 .gallery-caption { display: block; }
+
+/*--------------------------------------------------------------
+# Pages
+--------------------------------------------------------------*/
+body.home header .custom-logo { display: none; }
+
+body.home header .main-navigation li.menu-item-102 { display: none; }
+
+body.home main .splash-page { position: relative; }
+
+body.home main .splash-page .text { display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; }
+
+body.home main .splash-page .text .section-heading { margin: 0; font-size: 2.617924em; line-height: 1; }
+
+@media (min-width: 47.5em) { body.home main .splash-page .text .section-heading { font-size: 4.235801032em; } }
+
+@media (min-width: 78.125em) { body.home main .splash-page .text .section-heading { font-size: 6.8535260698em; } }
+
+body.home main .splash-page .text .section-subheading { margin: 0; font-size: 1.618em; }
+
+@media (min-width: 47.5em) { body.home main .splash-page .text .section-subheading { font-size: 2.617924em; } }
+
+@media (min-width: 78.125em) { body.home main .splash-page .text .section-subheading { font-size: 4.235801032em; } }
+
+body.home main .featured-projects ul { margin: 0; padding: 0; list-style: none; }
+
+body.home main .featured-projects .featured-project { min-height: 100vh; }
+
+body.home main .featured-projects .featured-project .content { display: flex; width: 100%; }
+
+body.home main .featured-projects .featured-project .content aside { margin-right: 2.617924em; }
+
+body.home main .featured-projects .featured-project .content .content-section { flex: 1; }
+
+body.home main .featured-projects .featured-project .content .content-section.text, body.home main .featured-projects .featured-project .content .content-section.text-hover { margin: 1.618em 0; }
+
+body.home main .featured-projects .featured-project .content .content-section.text { text-transform: uppercase; }
+
+body.home main .featured-projects .featured-project .content .content-section.text-hover { display: none; }
+
+body.home main .featured-projects .featured-project .content .content-section img { width: 100%; height: 100%; -o-object-fit: cover; object-fit: cover; }
+
+body.home main .featured-projects .featured-project .content .content-section h2, body.home main .featured-projects .featured-project .content .content-section h3 { margin: 0; line-height: 1; }
+
+body.home main .featured-projects .featured-project .content .content-section .overview { margin-bottom: 2.617924em; }
+
+body.home main .featured-projects .featured-project .content .content-section .overview .project-title { font-size: 4.235801032em; }
+
+body.home main .featured-projects .featured-project .content .content-section .overview .project-type { font-size: 2.617924em; }
+
+body.home main .featured-projects .featured-project .content .content-section .tools h3 { font-size: 1.618em; }
+
+body.home main .featured-projects .featured-project .content .content-section .tools .tools-list { display: flex; flex-wrap: wrap; }
+
+body.home main .featured-projects .featured-project .content .content-section .tools .tools-list .tool-type { color: #c08f33; width: 1.618em; }
+
+body.home main .featured-projects .featured-project .content .content-section .tools .tools-list .tool { margin-right: 1em; }
 
 /*# sourceMappingURL=../highlights/sass/maps/style.css.map */

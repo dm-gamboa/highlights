@@ -1,0 +1,141 @@
+body.home {
+    header {
+        .custom-logo {
+            display: none;
+        }
+
+        .main-navigation {
+            li.menu-item-102 {
+                display: none;
+            }
+        }        
+    }
+
+    main {
+        .splash-page {
+            position: relative;
+
+            .text {
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+
+                .section-heading {
+                    margin: 0;
+                    font-size: modular_scale(2);
+                    line-height: 1;
+
+                    @include mq($tablet) {
+                        font-size: modular_scale(3);
+                    }
+
+                    @include mq($desktop) {
+                        font-size: modular_scale(4);
+                    }
+                    
+                }
+
+                .section-subheading {
+                    margin: 0;
+                    font-size: modular_scale(1);
+
+                    @include mq($tablet) {
+                        font-size: modular_scale(2);
+                    }
+
+                    @include mq($desktop) {
+                        font-size: modular_scale(3);
+                    }
+                }                
+            }
+
+        }
+
+        .featured-projects {
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .featured-project {
+                min-height: 100vh;
+
+                .content {
+                    display: flex;
+                    width: 100%;
+
+                    aside {
+                        margin-right: modular_scale(2);
+                    }
+
+                    .content-section {
+                        flex: 1;
+
+                        &.text,
+                        &.text-hover {
+                            margin: modular_scale(1) 0;
+                        }
+
+                        &.text {
+                            text-transform: uppercase;
+                        }
+
+                        &.text-hover {
+                            display: none;
+                        }
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+
+                        h2, h3 {
+                            margin: 0;
+                            line-height: 1;
+                        }
+
+                        .overview {
+                            margin-bottom: modular_scale(2);
+
+                            .project-title {
+                                font-size: modular_scale(3);
+                            }
+
+                            .project-type {
+                                font-size: modular_scale(2);
+                            }
+                        }
+
+                        .tools {
+                            h3 {
+                                font-size: modular_scale(1);
+                            }
+
+                            .tools-list{
+                                display: flex;
+                                flex-wrap: wrap;
+
+                                .tool-type {
+                                    color: #{$color__text-med-light};
+                                    width: modular_scale(1);
+                                }
+                                
+                                .tool {
+                                    margin-right: modular_scale(0);
+                                }
+                            }
+
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

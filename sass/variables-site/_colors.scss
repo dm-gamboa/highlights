@@ -1,35 +1,50 @@
 $color__brand-01: #F4B743;
-$color__brand-02: #242021;
-$color__brand-03: #E6E6E6;
+$color__brand-02: #755720;
+$color__brand-03: #242021;
+$color__brand-04: #E6E6E6;
 
 $color__brand-01-variant-dark: #C29034;
 $color__brand-01-variant-darker: darken(#C29034 , 0.5);
-$color__brand-02-variant-dark: #0F0E0E;
-$color__brand-02-variant-darker: darken(#0F0E0E , 0.5);
-$color__brand-03-variant-dark: #CCCCCC;
-$color__brand-03-variant-darker: darken(#CCCCCC , 0.5);
+$color__brand-02-variant-dark: #36280E;
+$color__brand-02-variant-darker: darken(#36280E , 0.5);
+$color__brand-03-variant-dark: #0F0E0E;
+$color__brand-03-variant-darker: darken(#0F0E0E , 0.5);
+$color__brand-04-variant-dark: #CCCCCC;
+$color__brand-04-variant-darker: darken(#CCCCCC , 0.5);
 
 $color__brand-01-variant-light: #F7D18D;
 $color__brand-01-variant-lighter: lighten(#F7D18D , 0.5);
-$color__brand-02-variant-light: #332D2F;
-$color__brand-02-variant-lighter: lighten(#332D2F , 0.5);
-$color__brand-03-variant-light: #F2F2F2;
-$color__brand-03-variant-lighter: lighten(#F2F2F2 , 0.5);
+$color__brand-02-variant-light: #C2A56E;
+$color__brand-02-variant-lighter: lighten(#C2A56E , 0.5);
+$color__brand-03-variant-light: #332D2F;
+$color__brand-03-variant-lighter: lighten(#332D2F , 0.5);
+$color__brand-04-variant-light: #F2F2F2;
+$color__brand-04-variant-lighter: lighten(#F2F2F2 , 0.5);
 
-$color__background-body: #{$color__brand-03-variant-lighter};
+$color__background-body: #{$color__brand-01};
 $color__background-screen: #f1f1f1;
-$color__background-hr: #ccc;
-$color__background-button: #e6e6e6;
-$color__background-pre: #eee;
+$color__background-hr: #{$color__brand-04-variant-darker};
+$color__background-button: #{$color__brand-03};
+$color__background-pre: #{$color__brand-04-variant-darker};
 $color__background-ins: #fff9c0;
 
+$color__text-dark: #{$color__brand-03};
+$color__text-med-light: #{$color__brand-01-variant-darker};
+$color__text-med-dark: #{$color__brand-02};
+$color__text-light: #{$color__brand-04};
+
+$color__text-heading: #{$color__text-med-light};
+$color__text-heading-active: #{$color__text-dark};
+$color__text-main: #{$color__brand-03-variant-darker};
 $color__text-screen: #21759b;
-$color__text-input: #666;
-$color__text-input-focus: #111;
-$color__link: royalblue;
-$color__link-visited: purple;
-$color__link-hover: midnightblue;
-$color__text-main: #404040;
+
+$color__text-button: #{$color__brand-01};
+$color__text-input: #{$color__text-dark};
+$color__text-input-focus: #{$color__text-med-light};
+
+$color__link: #{$color__text-med-light};
+$color__link-visited:#{$color__text-med-light};
+$color__link-hover: #{$color__text-dark};
 
 $color__border-button: #ccc #ccc #bbb;
 $color__border-button-hover: #ccc #bbb #aaa;

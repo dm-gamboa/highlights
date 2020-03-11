@@ -64,13 +64,15 @@ if( function_exists( 'get_field' ) ){
     <section id="splash-page" class="splash-page main-section">
         <h2 class="section-title screen-reader-text">Splash Page</h2>
         <div class="content">
-            <?php if( $splashPage[ 'heading' ] ): ?>
-                <h2 class="section-heading"><?php echo $splashPage[ 'heading' ]; ?></h2>
-            <?php endif; ?>
-        
-            <?php if( $splashPage[ 'subheading' ] ): ?>
-                <h3 class="section-subheading"><?php echo $splashPage[ 'subheading' ]; ?></h3>
-            <?php endif; ?>
+            <div class="text">
+                <?php if( $splashPage[ 'heading' ] ): ?>
+                    <h2 class="section-heading"><?php echo $splashPage[ 'heading' ]; ?></h2>
+                <?php endif; ?>
+            
+                <?php if( $splashPage[ 'subheading' ] ): ?>
+                    <h3 class="section-subheading"><?php echo $splashPage[ 'subheading' ]; ?></h3>
+                <?php endif; ?>
+            </div><!--.text-->
 
             <?php if( $splashPage[ 'image' ] ) {
                 echo wp_get_attachment_image( $splashPage[ 'image' ], 'full' );
@@ -80,11 +82,7 @@ if( function_exists( 'get_field' ) ){
 
     <section id="featured-projects" class="featured-projects main-section">
         <?php if( $featuredProjects[ 'title' ] ): ?>
-            <h2 class="section-title"><?php echo $featuredProjects[ 'title' ];?></h2>
-        <?php endif; ?>
-
-        <?php if( $featuredProjects[ 'description' ] ): ?>
-            <p class="section-description"><?php echo $featuredProjects[ 'description' ];?></p>
+            <h2 class="section-title"><?php echo $featuredProjects[ 'title' ]; ?></h2>
         <?php endif; ?>
 
         <?php if( $featuredProjects[ 'the_projects' ] ) : ?>

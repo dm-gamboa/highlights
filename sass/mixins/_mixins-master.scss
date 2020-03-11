@@ -1,3 +1,6 @@
+// Bourbon
+@import "bourbon/bourbon";
+
 // Rem output with px fallback
 @mixin font-size($sizeValue: 1) {
 	font-size: ($sizeValue * 16) * 1px;
@@ -27,3 +30,11 @@
 @mixin column-width($numberColumns: 3) {
 	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
+
+// Media Query
+@mixin mq($w){
+    @media (min-width: $w){
+        @content;
+    }
+}
+

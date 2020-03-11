@@ -1,0 +1,12 @@
+// Functions
+// -- Convert Px to Ems
+@function em($px, $bc: 16){
+    @return #{$px/$bc}em; 
+}
+
+$link-hover-selector: '&:hover, &:focus, &:active';
+$link-inactive-selector: '&:not(:hover), &:not(:focus), &:not(:active)';
+
+$desktop: em(1250);
+$tablet: em(760);
+$mobile: em(420);
