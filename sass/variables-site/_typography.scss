@@ -17,11 +17,14 @@ $font__line-height-pre: 1.6;
     .icon {
         font-family: 'icons';
 
+        &.icon-left:before { content: '\e800'; } /* '' */
+        &.icon-down:before { content: '\e801'; } /* '' */
+        &.icon-right:before { content: '\e802'; } /* '' */
+        &.icon-up:before { content: '\e803'; } /* '' */
         &.icon-design:before { content: '\e804'; } /* '' */
         &.icon-project-management:before { content: '\e806'; } /* '' */
         &.icon-github:before { content: '\f09b'; } /* '' */
         &.icon-development:before { content: '\f121'; } /* '' */
-        &.icon-arrow:before { content: '\f13a'; } /* '' */
         &.icon-linkedin:before { content: '\f319'; } /* '' */
     }
 }

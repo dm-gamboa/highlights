@@ -78,6 +78,10 @@ if( function_exists( 'get_field' ) ){
                 echo wp_get_attachment_image( $splashPage[ 'image' ], 'full' );
             } ?>
         </div><!--.content-->
+
+        <span class="scroll-down icon-link">
+            <span class="icon icon-down"></span>
+        </span><!--.icon-link-->
     </section><!--#splash-page.main-section-->
 
     <section id="featured-projects" class="featured-projects main-section">

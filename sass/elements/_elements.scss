@@ -9,7 +9,7 @@ html {
 }
 
 body {
-	padding: modular_scale(1) modular_scale(1);
+	padding: modular_scale(1) modular_scale(0);
 	background: $color__background-body;
 
 	@include mq($tablet) {
@@ -24,11 +24,15 @@ body {
 header {
 	position: sticky;
 	top: 0;
+
+	.site-branding {
+		display: none;
+	}
 }
 
 .main-section {
 	min-height: 100vh;
-	
+
 	h2.section-title {
 		font-size: modular_scale(3);
 	}

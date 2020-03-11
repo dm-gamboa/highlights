@@ -1,0 +1,21 @@
+.tools {
+    margin-bottom: modular_scale(2);
+
+    h3 {
+        font-size: modular_scale(1);
+    }
+
+    .tools-list{
+        display: flex;
+        flex-wrap: wrap;
+
+        .tool-type {
+            color: #{$color__text-med-light};
+            width: modular_scale(1);
+        }
+        
+        .tool {
+            margin-right: modular_scale(0);
+        }
+    }
+}

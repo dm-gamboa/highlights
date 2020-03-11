@@ -22,8 +22,8 @@ if( function_exists( 'get_field' ) ){
     if( $overviewACF ){
         $overview = array (
             'description'       => $overviewACF[ 'description' ],
-            'link_github'       => $overviewACF[ 'link' ][ 'github' ],
-            'link_live_site'    => $overviewACF[ 'link' ][ 'live_site' ]
+            'link_github'       => $overviewACF[ 'links' ][ 'github' ],
+            'link_live_site'    => $overviewACF[ 'links' ][ 'live_site' ]
         );
     }
 }
@@ -48,23 +48,29 @@ $projTools      = highlights_get_terms_in_subcategory( 'type', 'project-manageme
 
 <li class="featured-project">
     <div class="content">
-        <aside class="content-section">
+        <aside class="content-section aside">
             <?php the_post_thumbnail(); ?>
-            <span class="links">
-                <?php if( $overview[ 'link_github' ] ): ?>
-                    <a class="github" href="<?php echo esc_url( $overview[ 'link_github' ] ); ?>">GitHub</a>
-                <?php endif; ?>
-
-                <?php if( $overview[ 'link_github' ] ): ?>
-                    <a class="live-site" href="<?php echo esc_url( $overview[ 'link_live_site' ] );?>">Live Site</a>
-                <?php endif; ?>
-            </span><!--.links-->
         </aside><!--.content-section-->
         
         <div class="content-section text">
-            <div class="overview">
+            <div class="heading">
                 <h2 class="project-title"><?php the_title(); ?></h2>
-                <h3 class="project-type"><?php echo $projectType; ?></h3>
+                <span class="project-info">
+                    <h3 class="project-type"><?php echo $projectType; ?></h3>
+                    <span class="links">
+                        <?php if( $overview[ 'link_github' ] ): ?>
+                            <a class="icon-link" href="<?php echo esc_url( $overview[ 'link_github' ] ); ?>" target="_blank">
+                                <span class="icon icon-github">
+                                    <span class="screen-reader-text">GitHub</span>
+                                </span>
+                            </a><!--.icon-link-->
+                        <?php endif; ?>
+
+                        <?php if( $overview[ 'link_github' ] ): ?>
+                            <a class="live-site button button-link" href="<?php echo esc_url( $overview[ 'link_live_site' ] );?>" target="_blank">Live Site</a>
+                        <?php endif; ?>
+                    </span><!--.links-->
+                </span><!--.project-info-->
             </div><!--.overview-->
 
             <div class="tools">
@@ -110,12 +116,13 @@ $projTools      = highlights_get_terms_in_subcategory( 'type', 'project-manageme
                 </ul><!--.project.tools-list-->
 
             </div><!--.tools-->
+
+            <a class="button button-link" href="<?php the_permalink(); ?>">Read More</a>
         </div><!--.content-section.text-->
 
         <div class="content-section text-hover">
             <p class="description"><?php echo $overview[ 'description' ]; ?></p>
+            <a class="button button-link" href="<?php the_permalink(); ?>">Read More</a>
         </div><!--.content-section.text-hover-->
     </div><!--.content-->
-
-    <a class="button button-link" href="<?php the_permalink(); ?>">Read More</a>
 </li><!--.featured-project-->

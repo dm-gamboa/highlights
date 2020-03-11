@@ -47,7 +47,15 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .icon-link { text-decoration: none; }
 
-.icon-link .icon { font-family: 'icons'; /* '' */ /* '' */ /* '' */ /* '' */ /* '' */ /* '' */ }
+.icon-link .icon { font-family: 'icons'; /* '' */ /* '' */ /* '' */ /* '' */ /* '' */ /* '' */ /* '' */ /* '' */ /* '' */ }
+
+.icon-link .icon.icon-left:before { content: '\e800'; }
+
+.icon-link .icon.icon-down:before { content: '\e801'; }
+
+.icon-link .icon.icon-right:before { content: '\e802'; }
+
+.icon-link .icon.icon-up:before { content: '\e803'; }
 
 .icon-link .icon.icon-design:before { content: '\e804'; }
 
@@ -56,8 +64,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .icon-link .icon.icon-github:before { content: '\f09b'; }
 
 .icon-link .icon.icon-development:before { content: '\f121'; }
-
-.icon-link .icon.icon-arrow:before { content: '\f13a'; }
 
 .icon-link .icon.icon-linkedin:before { content: '\f319'; }
 
@@ -202,13 +208,15 @@ html { box-sizing: border-box; }
 
 *, *:before, *:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */ box-sizing: inherit; }
 
-body { padding: 1.618em 1.618em; background: #F4B743; }
+body { padding: 1.618em 1em; background: #F4B743; }
 
 @media (min-width: 47.5em) { body { padding: 1.618em 2.617924em; } }
 
 @media (min-width: 78.125em) { body { padding: 1.618em 4.235801032em; } }
 
 header { position: -webkit-sticky; position: sticky; top: 0; }
+
+header .site-branding { display: none; }
 
 .main-section { min-height: 100vh; }
 
@@ -237,7 +245,7 @@ table { margin: 0 0 1.5em; width: 100%; }
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-button, input[type="button"], input[type="reset"], input[type="submit"], .button { padding: 1em; background: #242021; color: #F4B743; text-transform: uppercase; text-decoration: none; }
+button, input[type="button"], input[type="reset"], input[type="submit"], .button { display: block; padding: 1em; max-width: 9.375em; background: #242021; color: #F4B743; text-align: center; text-transform: uppercase; text-decoration: none; }
 
 button:hover, button:focus, button:active, input[type="button"]:hover, input[type="button"]:focus, input[type="button"]:active, input[type="reset"]:hover, input[type="reset"]:focus, input[type="reset"]:active, input[type="submit"]:hover, input[type="submit"]:focus, input[type="submit"]:active, .button:hover, .button:focus, .button:active { background: #C29034; color: #242021; font-weight: bold; }
 
@@ -270,24 +278,23 @@ a:hover, a:active { outline: 0; }
 --------------------------------------------------------------*/
 .main-navigation { display: block; width: 100%; }
 
-.main-navigation ul { display: none; margin: 0; padding: 0; list-style: none; }
+.main-navigation ul { display: flex; margin: 0; padding: 0; list-style: none; }
 
-@media (min-width: 47.5em) { .main-navigation ul.nav-menu { display: flex; }
-	.main-navigation ul.nav-menu li { flex: 1; }
-	.main-navigation ul.sub-menu { display: block; }
-	.main-navigation ul.sub-menu li { float: right; padding-left: 1.618em; } }
+.main-navigation ul.nav-menu { display: flex; }
+
+.main-navigation ul.nav-menu li { flex: 1; }
+
+.main-navigation ul.sub-menu { display: block; }
+
+.main-navigation ul.sub-menu li { float: right; padding-left: 1.618em; }
 
 .main-navigation a { display: block; font-size: 1.618em; text-decoration: none; }
 
 .main-navigation .icon-link .icon { font-size: 1.618em; }
 
+.main-navigation .menu-toggle { display: none; }
+
 /* Small menu. */
-.menu-toggle, .main-navigation.toggled ul { display: block; }
-
-@media (min-width: 47.5em) { .menu-toggle, .main-navigation.toggled ul { display: none; } }
-
-@media (min-width: 47.5em) { .menu-toggle { display: none; } }
-
 .site-main .comment-navigation, .site-main .posts-navigation, .site-main .post-navigation { margin: 0 0 1.5em; overflow: hidden; }
 
 .comment-navigation .nav-previous, .posts-navigation .nav-previous, .post-navigation .nav-previous { float: left; width: 50%; }
@@ -402,15 +409,72 @@ embed, iframe, object { max-width: 100%; }
 .gallery-caption { display: block; }
 
 /*--------------------------------------------------------------
+# Template Parts
+--------------------------------------------------------------*/
+.tools { margin-bottom: 2.617924em; }
+
+.tools h3 { font-size: 1.618em; }
+
+.tools .tools-list { display: flex; flex-wrap: wrap; }
+
+.tools .tools-list .tool-type { color: #c08f33; width: 1.618em; }
+
+.tools .tools-list .tool { margin-right: 1em; }
+
+.featured-project { margin: 11.0890051809em 0; }
+
+.featured-project .content { width: 100%; }
+
+@media (min-width: 47.5em) { .featured-project .content { display: flex; } }
+
+@media (min-width: 47.5em) { .featured-project .content .content-section { flex: 1; } }
+
+.featured-project .content .content-section.text, .featured-project .content .content-section.text-hover { margin-bottom: 1.618em; }
+
+@media (min-width: 47.5em) { .featured-project .content .content-section.aside { margin-right: 2.617924em; } }
+
+.featured-project .content .content-section.text { text-transform: uppercase; }
+
+.featured-project .content .content-section.text-hover { display: none; }
+
+.featured-project .content .content-section h2, .featured-project .content .content-section h3 { margin: 0; line-height: 1; }
+
+.featured-project .content .content-section img { width: 100%; height: 50vh; -o-object-fit: cover; object-fit: cover; }
+
+@media (min-width: 47.5em) { .featured-project .content .content-section img { height: 100%; } }
+
+.featured-project .content .content-section .heading { margin-bottom: 2.617924em; }
+
+.featured-project .content .content-section .heading .project-title { font-size: 4.235801032em; }
+
+.featured-project .content .content-section .heading .project-info { display: flex; justify-content: flex-start; align-items: center; }
+
+.featured-project .content .content-section .heading .project-info .project-type { margin-right: 0.3819820591em; font-size: 2.617924em; }
+
+.featured-project .content .content-section .heading .project-info .links { display: flex; justify-content: flex-start; align-items: center; }
+
+.featured-project .content .content-section .heading .project-info .links a { margin-right: 0.3819820591em; font-size: 1.618em; }
+
+.featured-project .content .content-section .heading .project-info .links .button { padding: 0.3819820591em; font-size: 0.6180469716em; }
+
+.tools { margin-bottom: 2.617924em; }
+
+.tools h3 { font-size: 1.618em; }
+
+.tools .tools-list { display: flex; flex-wrap: wrap; }
+
+.tools .tools-list .tool-type { color: #c08f33; width: 1.618em; }
+
+.tools .tools-list .tool { margin-right: 1em; }
+
+/*--------------------------------------------------------------
 # Pages
 --------------------------------------------------------------*/
-body.home header .custom-logo { display: none; }
-
 body.home header .main-navigation li.menu-item-102 { display: none; }
 
 body.home main .splash-page { position: relative; }
 
-body.home main .splash-page .text { display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; }
+body.home main .splash-page .text { display: block; position: absolute; top: 50%; transform: translateY(-50%); width: 100%; }
 
 body.home main .splash-page .text .section-heading { margin: 0; font-size: 2.617924em; line-height: 1; }
 
@@ -424,38 +488,10 @@ body.home main .splash-page .text .section-subheading { margin: 0; font-size: 1.
 
 @media (min-width: 78.125em) { body.home main .splash-page .text .section-subheading { font-size: 4.235801032em; } }
 
+body.home main .splash-page .scroll-down { display: block; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); padding-bottom: 2.617924em; font-size: 2.617924em; color: #c08f33; }
+
 body.home main .featured-projects ul { margin: 0; padding: 0; list-style: none; }
 
-body.home main .featured-projects .featured-project { min-height: 100vh; }
-
-body.home main .featured-projects .featured-project .content { display: flex; width: 100%; }
-
-body.home main .featured-projects .featured-project .content aside { margin-right: 2.617924em; }
-
-body.home main .featured-projects .featured-project .content .content-section { flex: 1; }
-
-body.home main .featured-projects .featured-project .content .content-section.text, body.home main .featured-projects .featured-project .content .content-section.text-hover { margin: 1.618em 0; }
-
-body.home main .featured-projects .featured-project .content .content-section.text { text-transform: uppercase; }
-
-body.home main .featured-projects .featured-project .content .content-section.text-hover { display: none; }
-
-body.home main .featured-projects .featured-project .content .content-section img { width: 100%; height: 100%; -o-object-fit: cover; object-fit: cover; }
-
-body.home main .featured-projects .featured-project .content .content-section h2, body.home main .featured-projects .featured-project .content .content-section h3 { margin: 0; line-height: 1; }
-
-body.home main .featured-projects .featured-project .content .content-section .overview { margin-bottom: 2.617924em; }
-
-body.home main .featured-projects .featured-project .content .content-section .overview .project-title { font-size: 4.235801032em; }
-
-body.home main .featured-projects .featured-project .content .content-section .overview .project-type { font-size: 2.617924em; }
-
-body.home main .featured-projects .featured-project .content .content-section .tools h3 { font-size: 1.618em; }
-
-body.home main .featured-projects .featured-project .content .content-section .tools .tools-list { display: flex; flex-wrap: wrap; }
-
-body.home main .featured-projects .featured-project .content .content-section .tools .tools-list .tool-type { color: #c08f33; width: 1.618em; }
-
-body.home main .featured-projects .featured-project .content .content-section .tools .tools-list .tool { margin-right: 1em; }
+.single-projects .overview { list-style: none; }
 
 /*# sourceMappingURL=../highlights/sass/maps/style.css.map */

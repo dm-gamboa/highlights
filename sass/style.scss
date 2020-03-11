@@ -107,6 +107,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "media/media";
 
 /*--------------------------------------------------------------
+# Template Parts
+--------------------------------------------------------------*/
+@import "template-parts/template-parts";
+
+/*--------------------------------------------------------------
 # Pages
 --------------------------------------------------------------*/
 @import "pages/pages";

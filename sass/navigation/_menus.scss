@@ -3,27 +3,25 @@
 	width: 100%;
 
 	ul {
-		display: none;
+		display: flex;
 		margin: 0;
 		padding: 0;
 		list-style: none;
 
-		@include mq($tablet) {
-			&.nav-menu {
-				display: flex;
+		&.nav-menu {
+			display: flex;
 
-				li {
-					flex: 1;
-				}
+			li {
+				flex: 1;
 			}
+		}
 
-			&.sub-menu {
-				display: block;
+		&.sub-menu {
+			display: block;
 
-				li {
-					float: right;
-					padding-left: modular_scale(1);
-				}
+			li {
+				float: right;
+				padding-left: modular_scale(1);
 			}
 		}
 	}
@@ -37,23 +35,27 @@
 	.icon-link .icon {
 		font-size: modular_scale(1);
 	}
-}
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-
-	@include mq($tablet) {
-		display: none;
-	}
-}
-
-@include mq($tablet) {
 	.menu-toggle {
 		display: none;
 	}
 }
+
+/* Small menu. */
+// .menu-toggle,
+// .main-navigation.toggled ul {
+// 	display: block;
+
+// 	@include mq($tablet) {
+// 		display: none;
+// 	}
+// }
+
+// @include mq($tablet) {
+// 	.menu-toggle {
+// 		display: none;
+// 	}
+// }
 
 .comment-navigation,
 .posts-navigation,

@@ -27,27 +27,42 @@ $projTools      = highlights_get_terms_in_subcategory( 'type', 'project-manageme
 // ----------------------------------------
 ?>
 
-<div class="featured-project">
-    <aside class="content-aside">
-        <figure class="preview"><?php the_post_thumbnail(); ?></figure>
-        <span class="links">
-            <?php if( $overview[ 'link_github' ] ): ?>
-                <a class="github" href="<?php echo esc_url( $overview[ 'link_github' ] ); ?>">GitHub</a>
-            <?php endif; ?>
-
-            <?php if( $overview[ 'link_github' ] ): ?>
-                <a class="live-site" href="<?php echo esc_url( $overview[ 'link_live_site' ] );?>">Live Site</a>
-            <?php endif; ?>
-        </span><!--.links-->
-    </aside><!--.aside-->
+<div class="content">
+    <aside class="content-section aside">
+        <?php the_post_thumbnail(); ?>
+    </aside><!--.content-section-->
     
-    <div class="content-main">
-        <h1 class="title"><?php the_title(); ?></h1>
-        <h3 class="type"><?php echo $projectType; ?></h3>
+    <div class="content-section text">
+        <div class="heading">
+            <h2 class="project-title"><?php the_title(); ?></h2>
+            <span class="project-info">
+                <h3 class="project-type"><?php echo $projectType; ?></h3>
+                <span class="links">
+                    <?php if( $overview[ 'link_github' ] ): ?>
+                        <a class="icon-link" href="<?php echo esc_url( $overview[ 'link_github' ] ); ?>" target="_blank">
+                            <span class="icon icon-github">
+                                <span class="screen-reader-text">GitHub</span>
+                            </span>
+                        </a><!--.icon-link-->
+                    <?php endif; ?>
+
+                    <?php if( $overview[ 'link_github' ] ): ?>
+                        <a class="live-site button button-link" href="<?php echo esc_url( $overview[ 'link_live_site' ] );?>" target="_blank">Live Site</a>
+                    <?php endif; ?>
+                </span><!--.links-->
+            </span><!--.project-info-->
+            <p class="description"><?php echo $overview[ 'description' ]; ?></p>
+        </div><!--.heading-->
 
         <div class="tools">
+            <h3>Tools</h3>
+
             <ul class="development tools-list">
-                <h3>Development Tools</h3>
+                <span class="tool-type icon-link">
+                    <span class="icon icon-development">
+                        <span class="screen-reader-text">Project Management Tools</span>
+                    </span>
+                </span><!--.tool-type-->
                 <?php if( $devTools ): ?>
                     <?php foreach( $devTools as $devTool ): ?>
                         <li class="tool"><?php echo $devTool; ?></li>
@@ -56,7 +71,11 @@ $projTools      = highlights_get_terms_in_subcategory( 'type', 'project-manageme
             </ul><!--.development.tools-list-->
 
             <ul class="design tools-list">
-                <h3>Design Tools</h3>
+                <span class="tool-type icon-link">
+                    <span class="icon icon-design">
+                        <span class="screen-reader-text">Project Management Tools</span>
+                    </span>
+                </span><!--.tool-type-->
                 <?php if( $desTools ): ?>
                     <?php foreach( $desTools as $desTool ): ?>
                         <li class="tool"><?php echo $desTool ?></li>
@@ -65,17 +84,18 @@ $projTools      = highlights_get_terms_in_subcategory( 'type', 'project-manageme
             </ul><!--.design.tools-list-->
 
             <ul class="project tools-list">
-                <h3>Project Management Tools</h3>
+                <span class="tool-type icon-link">
+                    <span class="icon icon-project-management">
+                        <span class="screen-reader-text">Project Management Tools</span>
+                    </span>
+                </span><!--.tool-type-->
                 <?php if( $projTools ): ?>
                     <?php foreach( $projTools as $projTool ): ?>
                         <li class="tool"><?php echo $projTool ?></li>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </ul><!--.project.tools-list-->
-        </div><!--.tools-->
-    </div><!--.content-main-->
 
-    <div class="content-main-hover">
-        <p class="description"><?php echo $overview[ 'description' ]; ?></p>
-    </div><!--.content-hover-->
-</div><!--.featured-project-->
+        </div><!--.tools-->
+    </div><!--.content-section.text-->
+</div><!--.content-->

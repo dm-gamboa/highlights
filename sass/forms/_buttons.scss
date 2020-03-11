@@ -3,9 +3,12 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"],
 .button {
+	display: block;
 	padding: modular_scale(0);
+	max-width: em(150);
 	background: $color__background-button;
 	color: $color__text-button;
+	text-align: center;
 	text-transform: uppercase;
 	text-decoration: none;
 
