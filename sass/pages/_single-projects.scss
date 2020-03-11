@@ -1,5 +1,31 @@
 .single-projects {
     .overview {
-        list-style: none;
+        display: block;
+        position: relative;
+        color: $color__text-med-light;
+
+        .full-width.background {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 110vw;
+            transform: translateX(-50%);
+            background-color: $color__brand-03;
+            z-index: -99;
+        }
+
+        .content {
+            padding: modular_scale(5) modular_scale(3);
+        }
+    }
+
+    .tabs {
+        display: flex;
+        margin-top: modular_scale(1);
+    }
+
+    .main-content {
+        padding: modular_scale(0) modular_scale(5);
+        background-color: white;
     }
 }

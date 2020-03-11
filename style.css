@@ -208,17 +208,15 @@ html { box-sizing: border-box; }
 
 *, *:before, *:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */ box-sizing: inherit; }
 
-body { padding: 1.618em 1em; background: #F4B743; }
+body { position: relative; padding: 0 1em; background: #F4B743; overflow-x: hidden; }
 
-@media (min-width: 47.5em) { body { padding: 1.618em 2.617924em; } }
+@media (min-width: 47.5em) { body { padding: 0 2.617924em; } }
 
-@media (min-width: 78.125em) { body { padding: 1.618em 4.235801032em; } }
+@media (min-width: 78.125em) { body { padding: 0 4.235801032em; } }
 
-header { position: -webkit-sticky; position: sticky; top: 0; }
+header { z-index: 99999; position: fixed; right: 4.235801032em; }
 
 header .site-branding { display: none; }
-
-.main-section { min-height: 100vh; }
 
 .main-section h2.section-title { font-size: 4.235801032em; }
 
@@ -245,7 +243,7 @@ table { margin: 0 0 1.5em; width: 100%; }
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-button, input[type="button"], input[type="reset"], input[type="submit"], .button { display: block; padding: 1em; max-width: 9.375em; background: #242021; color: #F4B743; text-align: center; text-transform: uppercase; text-decoration: none; }
+button, input[type="button"], input[type="reset"], input[type="submit"], .button { display: block; padding: 1em; max-width: 9.375em; background: #242021; color: #F4B743; text-align: center; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; }
 
 button:hover, button:focus, button:active, input[type="button"]:hover, input[type="button"]:focus, input[type="button"]:active, input[type="reset"]:hover, input[type="reset"]:focus, input[type="reset"]:active, input[type="submit"]:hover, input[type="submit"]:focus, input[type="submit"]:active, .button:hover, .button:focus, .button:active { background: #C29034; color: #242021; font-weight: bold; }
 
@@ -280,7 +278,7 @@ a:hover, a:active { outline: 0; }
 
 .main-navigation ul { display: flex; margin: 0; padding: 0; list-style: none; }
 
-.main-navigation ul.nav-menu { display: flex; }
+.main-navigation ul.nav-menu { display: flex; align-items: center; }
 
 .main-navigation ul.nav-menu li { flex: 1; }
 
@@ -415,7 +413,7 @@ embed, iframe, object { max-width: 100%; }
 
 .tools h3 { font-size: 1.618em; }
 
-.tools .tools-list { display: flex; flex-wrap: wrap; }
+.tools .tools-list { display: flex; flex-wrap: wrap; margin: 0; padding: 0; list-style: none; }
 
 .tools .tools-list .tool-type { color: #c08f33; width: 1.618em; }
 
@@ -457,22 +455,46 @@ embed, iframe, object { max-width: 100%; }
 
 .featured-project .content .content-section .heading .project-info .links .button { padding: 0.3819820591em; font-size: 0.6180469716em; }
 
-.tools { margin-bottom: 2.617924em; }
+.main-section.overview .content { width: 100%; }
 
-.tools h3 { font-size: 1.618em; }
+@media (min-width: 47.5em) { .main-section.overview .content { display: flex; } }
 
-.tools .tools-list { display: flex; flex-wrap: wrap; }
+@media (min-width: 47.5em) { .main-section.overview .content .content-section { flex: 1; } }
 
-.tools .tools-list .tool-type { color: #c08f33; width: 1.618em; }
+.main-section.overview .content .content-section.text { margin-bottom: 1.618em; }
 
-.tools .tools-list .tool { margin-right: 1em; }
+@media (min-width: 47.5em) { .main-section.overview .content .content-section.aside { margin-right: 2.617924em; } }
+
+.main-section.overview .content .content-section.text { text-transform: uppercase; }
+
+.main-section.overview .content .content-section h2, .main-section.overview .content .content-section h3 { margin: 0; line-height: 1; }
+
+.main-section.overview .content .content-section p { text-transform: none; }
+
+.main-section.overview .content .content-section img { width: 100%; height: 50vh; -o-object-fit: cover; object-fit: cover; }
+
+@media (min-width: 47.5em) { .main-section.overview .content .content-section img { height: 100%; } }
+
+.main-section.overview .content .content-section .heading { margin-bottom: 2.617924em; }
+
+.main-section.overview .content .content-section .heading .project-title { font-size: 4.235801032em; }
+
+.main-section.overview .content .content-section .heading .project-info { display: flex; justify-content: flex-start; align-items: center; }
+
+.main-section.overview .content .content-section .heading .project-info .project-type { margin-right: 0.3819820591em; font-size: 2.617924em; }
+
+.main-section.overview .content .content-section .heading .project-info .links { display: flex; justify-content: flex-start; align-items: center; }
+
+.main-section.overview .content .content-section .heading .project-info .links a { margin-right: 0.3819820591em; font-size: 1.618em; }
+
+.main-section.overview .content .content-section .heading .project-info .links .button { padding: 0.3819820591em; font-size: 0.6180469716em; }
 
 /*--------------------------------------------------------------
 # Pages
 --------------------------------------------------------------*/
 body.home header .main-navigation li.menu-item-102 { display: none; }
 
-body.home main .splash-page { position: relative; }
+body.home main .splash-page { position: relative; min-height: 100vh; }
 
 body.home main .splash-page .text { display: block; position: absolute; top: 50%; transform: translateY(-50%); width: 100%; }
 
@@ -492,6 +514,14 @@ body.home main .splash-page .scroll-down { display: block; position: absolute; l
 
 body.home main .featured-projects ul { margin: 0; padding: 0; list-style: none; }
 
-.single-projects .overview { list-style: none; }
+.single-projects .overview { display: block; position: relative; color: #c08f33; }
+
+.single-projects .overview .full-width.background { position: absolute; top: 0; bottom: 0; width: 110vw; transform: translateX(-50%); background-color: #242021; z-index: -99; }
+
+.single-projects .overview .content { padding: 11.0890051809em 4.235801032em; }
+
+.single-projects .tabs { display: flex; margin-top: 1.618em; }
+
+.single-projects .main-content { padding: 1em 11.0890051809em; background-color: white; }
 
 /*# sourceMappingURL=../highlights/sass/maps/style.css.map */

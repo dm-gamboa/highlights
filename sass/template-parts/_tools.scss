@@ -8,6 +8,9 @@
     .tools-list{
         display: flex;
         flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+        list-style: none;
 
         .tool-type {
             color: #{$color__text-med-light};

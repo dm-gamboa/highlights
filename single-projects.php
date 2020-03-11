@@ -21,8 +21,9 @@ if( function_exists( 'get_field' ) ){
 
     $overview = array (
         'description'       => $overviewACF[ 'description' ],
-        'link_github'       => $overviewACF[ 'link' ][ 'github' ],
-        'link_live_site'    => $overviewACF[ 'link' ][ 'live_site' ],
+        'image'             => $overviewACF[ 'image' ],
+        'link_github'       => $overviewACF[ 'links' ][ 'github' ],
+        'link_live_site'    => $overviewACF[ 'links' ][ 'live_site' ],
         'analytics'         => $overviewACF[ 'analytics' ]
     );
 
@@ -97,39 +98,46 @@ if( function_exists( 'get_field' ) ){
 
 <main id="main" class="site-main">
     <section id="overview" class="overview main-section">
-        <?php get_template_part( 'template-parts/content', 'project-overview' ); ?>
+        <?php 
+        set_query_var( 'overview', $overview );
+        get_template_part( 'template-parts/content', 'project-overview' ); 
+        set_query_var( 'overview', false );
+        ?>
     </section><!--#overview.main-section-->
 
-    <nav id="tabs" class="highlights main-section">
+    <nav id="tabs" class="tabs main-section">
         <button class="tab">Highlights</button>
         <button class="tab">Process</button>
     </nav>
-
-    <section id="highlights" class="highlights main-section">
-        <h2>Highlights</h2>
-        <?php
-        if( $highlights ){
-            foreach( $highlights as $highlight ){
-                set_query_var( 'section', $highlight );
-                get_template_part( 'template-parts/content', 'project-section' );
-                set_query_var( 'section', false );
+    
+    <div id="main-content" class="main-content main-section">
+        <section id="highlights" class="highlights main-section">
+            <h2>Highlights</h2>
+            <?php
+            if( $highlights ){
+                foreach( $highlights as $highlight ){
+                    set_query_var( 'section', $highlight );
+                    get_template_part( 'template-parts/content', 'project-section' );
+                    set_query_var( 'section', false );
+                }
             }
-        }
-        ?>
-    </section><!--#highlights.main-section-->
+            ?>
+        </section><!--#highlights.main-section-->
 
-    <section id="process" class="process main-section">
-        <h2>Process</h2>
-        <?php
-        if( $process ){
-            foreach( $process as $aProcess ){
-                set_query_var( 'section', $aProcess );
-                get_template_part( 'template-parts/content', 'project-section' );
-                set_query_var( 'section', false );
+        <section id="process" class="process main-section">
+            <h2>Process</h2>
+            <?php
+            if( $process ){
+                foreach( $process as $aProcess ){
+                    set_query_var( 'section', $aProcess );
+                    get_template_part( 'template-parts/content', 'project-section' );
+                    set_query_var( 'section', false );
+                }
             }
-        }
-        ?>
-    </section><!--#process.main-section-->
+            ?>
+        </section><!--#process.main-section-->
+    </div><!--#main-content.main-section-->
+
 
 </main><!-- #main -->
 

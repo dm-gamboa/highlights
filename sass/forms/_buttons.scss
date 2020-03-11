@@ -11,6 +11,8 @@ input[type="submit"],
 	text-align: center;
 	text-transform: uppercase;
 	text-decoration: none;
+	border: none;
+	cursor: pointer;
 
 	#{$link-hover-selector} {
 		background: $color__brand-01-variant-dark;

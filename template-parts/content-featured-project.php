@@ -66,12 +66,12 @@ $projTools      = highlights_get_terms_in_subcategory( 'type', 'project-manageme
                             </a><!--.icon-link-->
                         <?php endif; ?>
 
-                        <?php if( $overview[ 'link_github' ] ): ?>
+                        <?php if( $overview[ 'link_live_site' ] ): ?>
                             <a class="live-site button button-link" href="<?php echo esc_url( $overview[ 'link_live_site' ] );?>" target="_blank">Live Site</a>
                         <?php endif; ?>
                     </span><!--.links-->
                 </span><!--.project-info-->
-            </div><!--.overview-->
+            </div><!--.heading-->
 
             <div class="tools">
                 <h3>Tools</h3>
