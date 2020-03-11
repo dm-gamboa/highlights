@@ -208,7 +208,7 @@ html { box-sizing: border-box; }
 
 *, *:before, *:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */ box-sizing: inherit; }
 
-body { position: relative; padding: 0 1em; background: #F4B743; overflow-x: hidden; }
+body { position: relative; padding: 0 1em; background: #E6E6E6; overflow-x: hidden; }
 
 @media (min-width: 47.5em) { body { padding: 0 2.617924em; } }
 
