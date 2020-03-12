@@ -74,8 +74,6 @@ $projTools      = highlights_get_terms_in_subcategory( 'type', 'project-manageme
             </div><!--.heading-->
 
             <div class="tools">
-                <h3>Tools</h3>
-
                 <ul class="development tools-list">
                     <span class="tool-type icon-link">
                         <span class="icon icon-development">

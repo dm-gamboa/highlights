@@ -454,6 +454,8 @@ embed, iframe, object { max-width: 100%; }
 
 .featured-project .content .content-section .heading .project-info .links a { margin-right: 0.3819820591em; font-size: 1.618em; }
 
+.featured-project .content .content-section .heading .project-info .links a.icon-link { color: #242021; }
+
 .featured-project .content .content-section .heading .project-info .links .button { padding: 0.3819820591em; font-size: 0.6180469716em; }
 
 .main-section.overview .content { width: 100%; }

@@ -76,6 +76,10 @@
                         a {
                             margin-right: modular_scale(-2);
                             font-size: modular_scale(1);
+
+                            &.icon-link {
+                                color: $color__text-dark;
+                            }
                         }
 
                         .button {
