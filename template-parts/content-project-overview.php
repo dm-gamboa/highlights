@@ -37,7 +37,7 @@ $projTools      = highlights_get_terms_in_subcategory( 'type', 'project-manageme
     <div class="content-section text">
         <div class="heading">
             <h2 class="project-title"><?php the_title(); ?></h2>
-            <span class="project-info">
+            <div class="project-info">
                 <h3 class="project-type"><?php echo $projectType; ?></h3>
                 <span class="links">
                     <?php if( $overview[ 'link_github' ] ): ?>
@@ -52,7 +52,7 @@ $projTools      = highlights_get_terms_in_subcategory( 'type', 'project-manageme
                         <a class="live-site button button-link" href="<?php echo esc_url( $overview[ 'link_live_site' ] );?>" target="_blank">Live Site</a>
                     <?php endif; ?>
                 </span><!--.links-->
-            </span><!--.project-info-->
+            </div><!--.project-info-->
         </div><!--.heading-->
 
         <p class="description"><?php echo $overview[ 'description' ]; ?></p>

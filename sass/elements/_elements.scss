@@ -17,18 +17,31 @@ body {
 header {
 	z-index: 99999;
 	position: fixed;
-	padding: 0 modular_scale(3);
-	width: 100%;
-	background-color: $color__brand-03;
+	padding: 0 modular_scale(1);
+	padding-top: modular_scale(-1);
+	width: 100%; 
+	background-color: $color__background-header;
 
+	@include mq($tablet) {
+		padding: 0 modular_scale(2);
+	}
 
-	.site-branding {
-		display: none;
+	@include mq($desktop) {
+		padding: 0 modular_scale(3);
 	}
 }
 
 .main-section {
-	padding: 0 modular_scale(3);
+	padding: 0 modular_scale(1);
+	
+	@include mq($tablet) {
+		padding: 0 modular_scale(2);
+	}
+
+	@include mq($desktop) {
+		padding: 0 modular_scale(3);
+	}
+
 	h2.section-title {
 		font-size: modular_scale(3);
 	}

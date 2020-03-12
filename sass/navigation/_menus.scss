@@ -1,31 +1,8 @@
 .main-navigation {
-	display: block;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	width: 100%;
-
-	ul {
-		display: flex;
-		margin: 0;
-		padding: 0;
-		list-style: none;
-
-		&.nav-menu {
-			display: flex;
-			align-items: center;
-
-			li {
-				flex: 1;
-			}
-		}
-
-		&.sub-menu {
-			display: block;
-
-			li {
-				float: right;
-				padding-left: modular_scale(1);
-			}
-		}
-	}
 
 	a {
 		display: block;
@@ -33,48 +10,24 @@
 		text-decoration: none;
 	}
 
+	.custom-logo {
+		padding-top: modular_scale(-2);
+		max-width: em(25);
+	}
+
+	.nav {
+		display: flex;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		.nav-item {
+			margin-left: modular_scale(1);
+		}
+	}
+
 	.icon-link .icon {
 		font-size: modular_scale(1);
 	}
 
-	.menu-toggle {
-		display: none;
-	}
-}
-
-/* Small menu. */
-// .menu-toggle,
-// .main-navigation.toggled ul {
-// 	display: block;
-
-// 	@include mq($tablet) {
-// 		display: none;
-// 	}
-// }
-
-// @include mq($tablet) {
-// 	.menu-toggle {
-// 		display: none;
-// 	}
-// }
-
-.comment-navigation,
-.posts-navigation,
-.post-navigation {
-
-	.site-main & {
-		margin: 0 0 1.5em;
-		overflow: hidden;
-	}
-
-	.nav-previous {
-		float: left;
-		width: 50%;
-	}
-
-	.nav-next {
-		float: right;
-		text-align: right;
-		width: 50%;
-	}
 }

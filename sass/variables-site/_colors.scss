@@ -13,11 +13,12 @@ $color__brand-02-variant-light: #C2A56E;
 $color__brand-03-variant-light: #332D2F;
 $color__brand-04-variant-light: #F2F2F2;
 
+$color__background-header: rgba(#242021,0.85);
 $color__background-body: #{$color__brand-04};
 $color__background-screen: #f1f1f1;
 $color__background-hr: #{$color__brand-04-variant-dark};
 $color__background-button: #{$color__brand-03};
-$color__background-pre: #{$color__brand-04-variant-darker};
+$color__background-pre: #{$color__brand-04-variant-dark};
 $color__background-ins: #fff9c0;
 
 $color__text-dark: #{$color__brand-03};
