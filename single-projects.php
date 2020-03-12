@@ -106,12 +106,12 @@ if( function_exists( 'get_field' ) ){
     </section><!--#overview.main-section-->
 
     <nav id="tabs" class="tabs main-section">
-        <button class="tab">Highlights</button>
-        <button class="tab">Process</button>
+        <a class="button tab" href="#highlights">Highlights</a>
+        <a class="button tab" href="#process">Process</a>
     </nav>
     
     <div id="main-content" class="main-content main-section">
-        <section id="highlights" class="highlights main-section">
+        <section id="highlights" class="highlights sub-section">
             <h2>Highlights</h2>
             <?php
             if( $highlights ){
@@ -122,9 +122,9 @@ if( function_exists( 'get_field' ) ){
                 }
             }
             ?>
-        </section><!--#highlights.main-section-->
+        </section><!--#highlights.sub-section-->
 
-        <section id="process" class="process main-section">
+        <section id="process" class="process sub-section">
             <h2>Process</h2>
             <?php
             if( $process ){
@@ -135,8 +135,8 @@ if( function_exists( 'get_field' ) ){
                 }
             }
             ?>
-        </section><!--#process.main-section-->
-    </div><!--#main-content.main-section-->
+        </section><!--#process.sub-section-->
+    </div><!--#main-content.sub-section-->
 
 
 </main><!-- #main -->

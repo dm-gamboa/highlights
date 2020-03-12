@@ -10,23 +10,17 @@ html {
 
 body {
 	position: relative;
-	padding: 0 modular_scale(0);
 	background: $color__background-body;
 	overflow-x: hidden;
-
-	@include mq($tablet) {
-		padding: 0 modular_scale(2);
-	}
-
-	@include mq($desktop) {
-		padding: 0 modular_scale(3);
-	}
 }
 
 header {
 	z-index: 99999;
 	position: fixed;
-	right: modular_scale(3);	
+	padding: 0 modular_scale(3);
+	width: 100%;
+	background-color: $color__brand-03;
+
 
 	.site-branding {
 		display: none;
@@ -34,6 +28,7 @@ header {
 }
 
 .main-section {
+	padding: 0 modular_scale(3);
 	h2.section-title {
 		font-size: modular_scale(3);
 	}

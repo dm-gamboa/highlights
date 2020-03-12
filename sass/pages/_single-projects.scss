@@ -8,14 +8,14 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 110vw;
+            width: 200vw;
             transform: translateX(-50%);
             background-color: $color__brand-03;
             z-index: -99;
         }
 
         .content {
-            padding: modular_scale(5) modular_scale(3);
+            padding: modular_scale(5) 0;
         }
     }
 
@@ -25,7 +25,21 @@
     }
 
     .main-content {
-        padding: modular_scale(0) modular_scale(5);
-        background-color: white;
+        h2 {
+            margin-top: 0;
+        }
+
+        .sub-section {
+            padding: modular_scale(1);
+            background-color: #fff;
+
+            @include mq($tablet) {
+                padding: modular_scale(2);
+            }
+
+            @include mq($desktop) {
+                padding: modular_scale(3);
+            }
+        }
     }
 }

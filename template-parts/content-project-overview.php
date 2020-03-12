@@ -26,15 +26,15 @@ $desTools       = highlights_get_terms_in_subcategory( 'type', 'design' );
 $projTools      = highlights_get_terms_in_subcategory( 'type', 'project-management' );
 // ----------------------------------------
 ?>
-
+<span class="full-width background"></span>
 <div class="content">
     <aside class="content-section aside">
-        <?php the_post_thumbnail(); ?>
+        <?php if( $overview[ 'image' ] ):?>
+            <img src="<?php echo esc_url( $overview[ 'image' ]['url'] ); ?>" alt="<?php echo esc_attr( $overview[ 'image' ]['alt'] ); ?>" />
+        <?php endif; ?>
     </aside><!--.content-section-->
     
     <div class="content-section text">
-        <span class="full-width background"></span>
-
         <div class="heading">
             <h2 class="project-title"><?php the_title(); ?></h2>
             <span class="project-info">

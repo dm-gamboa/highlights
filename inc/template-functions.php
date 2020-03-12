@@ -89,3 +89,20 @@ if( !function_exists( 'get_terms_in_subcategory' ) ){
         return;
     }
 }
+
+// ----------------------------------------
+//  # ACF
+// ----------------------------------------
+/**
+ * Add options page
+ */
+if( function_exists( 'acf_add_options_page' ) ) {
+	acf_add_options_page();
+}
+
+/**
+ * Rename options page to Extra Settings
+ */
+if ( function_exists( 'acf_set_options_page_menu' ) ){
+    acf_set_options_page_menu( 'Extra Settings' );
+}

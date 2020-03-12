@@ -89,7 +89,7 @@ add_action( 'after_setup_theme', 'highlights_setup' );
 require get_template_directory() . '/inc/template-custom-post-types.php';
 
 /**
- * Register custom post types
+ * Register custom taxonomies
  */
 require get_template_directory() . '/inc/template-taxonomies.php';
 
