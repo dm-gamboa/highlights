@@ -79,6 +79,12 @@ if ( ! function_exists( 'highlights_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
+		/**
+		 * Custom Image Sizes
+		 *
+		 */
+		add_image_size( 'feature', 600, 300 );
 	}
 endif;
 add_action( 'after_setup_theme', 'highlights_setup' );

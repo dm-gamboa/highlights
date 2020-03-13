@@ -17,9 +17,11 @@ $class = "$for $type $title";
 ?>
 
 <div class="<?php echo $class; ?>">
-    <?php if( $section[ 'image' ] ): ?>
-        <img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
-    <?php endif;?>
+    <?php
+    if( $section[ 'image' ] ){
+        echo wp_get_attachment_image( '$section[ 'image' ]' , 'medium' );
+    }
+    ?>
 
     <?php if( $section[ 'title' ] ): ?>
         <h3 class="title section-title"><?php echo $section[ 'title' ]; ?></h3>

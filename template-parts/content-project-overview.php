@@ -29,9 +29,11 @@ $projTools      = highlights_get_terms_in_subcategory( 'type', 'project-manageme
 <span class="full-width background"></span>
 <div class="content">
     <aside class="content-section aside">
-        <?php if( $overview[ 'image' ] ):?>
-            <img src="<?php echo esc_url( $overview[ 'image' ]['url'] ); ?>" alt="<?php echo esc_attr( $overview[ 'image' ]['alt'] ); ?>" />
-        <?php endif; ?>
+        <?php
+        if( $overview[ 'image' ] ){
+            echo wp_get_attachment_image( $overview[ 'image' ], 'feature' );
+        {
+        ?>
     </aside><!--.content-section-->
     
     <div class="content-section text">

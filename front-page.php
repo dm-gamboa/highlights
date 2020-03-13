@@ -49,7 +49,7 @@ if( function_exists( 'get_field' ) ){
     if( $aboutACF ){
         $about = array (
             'title'             => $aboutACF[ 'title' ],
-            'description'       => $aboutACF[ 'text' ],
+            'text'              => $aboutACF[ 'text' ],
             'image'             => $aboutACF[ 'image' ]
         );
     }
